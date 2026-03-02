@@ -1,0 +1,12 @@
+<?php
+    // Start session
+    session_start();
+
+    // Handle form submission
+    if ($_SERVER('REQUEST_METHOD')=="POST") {
+
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+    }
+?>
