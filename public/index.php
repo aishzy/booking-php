@@ -8,6 +8,11 @@ define('BASE_PATH', dirname(__DIR__));
 define('APP_PATH', BASE_PATH . '/app');
 define('APP_DEBUG', getenv('APP_DEBUG') !== false ? filter_var(getenv('APP_DEBUG'), FILTER_VALIDATE_BOOLEAN) : true);
 
+// Define BASE_URL
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? 'https://' : 'http://';
+$base_url = $protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['SCRIPT_NAME']);
+define('BASE_URL', rtrim($base_url, '/'));
+
 // Autoloader for PSR-4 namespace
 spl_autoload_register(function ($class) {
     $prefix = 'App\\';

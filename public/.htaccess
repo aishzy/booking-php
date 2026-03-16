@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Set the base URL
+    RewriteBase /booking-php/public/
+    
+    # Don't rewrite if the request is for an actual file
+    RewriteCond %{REQUEST_FILENAME} !-f
+    
+    # Don't rewrite if the request is for an actual directory
+    RewriteCond %{REQUEST_FILENAME} !-d
+    
+    # Rewrite all other requests to index.php
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
